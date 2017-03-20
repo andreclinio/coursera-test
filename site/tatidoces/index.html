@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- The above 3 meta tags *must* come first in the head; 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- The above 3 meta tags *must* come first in the head; 
          any other head content must come *after* these tags -->
-    <title>Tati Doces</title>
+  <title>Tati Doces</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- My styles -->
-    <link href="css/styles.css" rel="stylesheet">
+  <!-- My styles -->
+  <link href="css/styles.css" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400" rel="stylesheet">
-  </head>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400" rel="stylesheet">
+</head>
 
-  <body>
-    <header>
+<body>
+  <header>
     <nav class="navbar navbar-default" id="header-nav">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -31,27 +32,30 @@
              <span class="icon-bar"></span>
           </button>
 
-          <a class="pull-left" href="index.html"><div id="logo"></div></a>
+          <a class="pull-left" href="index.html">
+            <div id="logo"></div>
+          </a>
 
-          <div id="phones" class="navbar-text">
-             <div> 
-                 <span class="glyphicon glyphicon-phone-alt phone"></span>
-                 <span class="phone">(21) 2264-0004</span> <span class="phone-high">Tijuca</span>
-             </div>
-             <div> 
-                 <span class="glyphicon glyphicon-phone-alt phone"></span>
-                 <span class="phone">(21) 2533-2448</span> <span class="phone-high">Centro</span>
-             </div>
+          <div id="phones" class="pull-left">
+            <div>
+              <span class="glyphicon glyphicon-phone-alt phone"></span>
+              <span class="phone">(21) 2264-0004</span> <span class="phone-high">Tijuca</span>
+            </div>
+            <div>
+              <span class="glyphicon glyphicon-phone-alt phone"></span>
+              <span class="phone">(21) 2533-2448</span> <span class="phone-high">Centro</span>
+            </div>
           </div>
 
-          <div id="social">
-            <a href="https://www.facebook.com/tatidocesoriginal" target="_blank">F<span id="facebook"></span></a>
-            <a href="https://www.twitter.com/tatidocesoriginal" target="_blank">T<span id="twitter"></span></a>
+          <div id="social" class="pull-left">
+            <a href="https://www.facebook.com/tatidocesoriginal" target="_blank"><span id="facebook"></span></a>
+            <a href="https://www.twitter.com/tatidocesoriginal" target="_blank"><span id="twitter"></span></a>
+            <a href="intent://send/21964667447#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><span id="whatsapp"></span></a>
           </div>
 
           <div id="menu" class="collapse navbar-collapse">
             <ul id="nav-list" class="nav navbar-nav navbar-right">
-              <li> 
+              <li>
                 <a href="about/">
                   <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs">Sobre nós</a>
               </li>
@@ -69,48 +73,98 @@
               </li>
 
             </ul>
-          </div>  <!-- menu -->
+          </div>
+          <!-- menu -->
 
-        </div><!-- navbar-header-->
-      </div> <!-- container-->
-   </nav> <!-- nav -->
-   </header>
+        </div>
+        <!-- navbar-header-->
+      </div>
+      <!-- container-->
+    </nav>
+    <!-- nav -->
+  </header>
 
-    <div id="call" class="visible-xs">
-      <a class="btn" href="tel:21-2264-0004">
+  <div id="call" class="visible-xs">
+    <a class="btn" href="tel:21-2264-0004">
       <span class="glyphicon glyphicon-earphone"></span> 21 2264-0004</a>
+  </div>
+
+
+  <div id="main-content" class="container">
+    <div class="jumbotron"></div>
+
+
+    <div id="sections" class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="products.html">
+          <div id="products"><span>Produtos</span></div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="peixeurbano.html">
+          <div id="peixeurbano"><span>Peixe Urbano</span></div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <a href="https://www.google.com.br/maps/place/Tati+Doces/@-22.9219339,-43.2345725,17z/data=!3m1!4b1!4m5!3m4!1s0x997e41e1b940c1:0x15058dc4afde95c!8m2!3d-22.9219389!4d-43.2323785?hl=pt-BR"
+          target="_blank">
+          <div id="mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.7677979557056!2d-43.234572549060076!3d-22.921933944101653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e41e1b940c1%3A0x15058dc4afde95c!2sTati+Doces!5e0!3m2!1spt-BR!2sbr!4v1489780527778"
+              width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <span>Mapa</span>
+          </div>
+          </a>
+      </div>
     </div>
-    
+  </div>
+  <!-- main content -->
 
-    <div id="main-content" class="container">
-       <div class="jumbotron"></div>
-    
-
-       <div id="sections" class="row">
-         <div class="col-md-4 col-sm-6 col-xs-12">
-           <a href="partykit.html"><div id="partykit"><span>Kit Festa</span></div></a>
-         </div>
-         <div class="col-md-4 col-sm-6 col-xs-12">
-           <a href="peixeurbano.html"><div id="peixeurbano"><span>Peixe Urbano</span></div></a>
-         </div>
-         <div class="col-md-4 col-sm-12 col-xs-12">
-           <a href="https://www.google.com.br/maps/place/Tati+Doces/@-22.9219339,-43.2345725,17z/data=!3m1!4b1!4m5!3m4!1s0x997e41e1b940c1:0x15058dc4afde95c!8m2!3d-22.9219389!4d-43.2323785?hl=pt-BR" target="_blank">
-              <div id="mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.7677979557056!2d-43.234572549060076!3d-22.921933944101653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e41e1b940c1%3A0x15058dc4afde95c!2sTati+Doces!5e0!3m2!1spt-BR!2sbr!4v1489780527778" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-                <span>Mapa</span>
-              </div><
-           </a>
-         </div>
-       </div>
+  <footer class="panel-footer">
+    <div class="container">
+      <div class="row">
+        <section class="col-sm-4" id="addresses-footer">
+          <div class="title-footer">Endereços</div>
+          <div class="subtitle-footer">loja tijuca</div>
+          <div> Rua Barão de Mesquita, 227 C</div>
+          <div> Rio de Janeiro - RJ - CEP 20540-001 </div>
+          <div>Tel (21) 2264-0004</div>
+          <div class="subtitle-footer">loja centro</div>
+          <div> Av. Franklin Roosevelt, 71</div>
+          <div>Rio de Janeiro - RJ - CEP 20021-120 </div>
+          <div> Tel. (21) 2533-2448</div>
+          <hr class="visible-xs">
+        </section>
+        <section class="col-sm-4" id="partykit-footer">
+          <div class="title-footer">Kit Festa</div>
+          <div> Conheça nossos Kits para alegrar a sua Festa e com um preço super interessante. Conheça as nossas promoções para
+            as lojas Tijuca e Centro</div>
+          <hr class="visible-xs">
+        </section>
+        <section class="col-sm-4" id="testimonials-footer">
+          <div class="title-footer">Depoimentos</div>
+          <div>"As tortas são realmente sensacionais!"</div>
+          <div>"Adoro! Faço sempre minhas festas com produtos de lá"</div>
+        </section>
+      </div>
+      <!-- row -->
+      <div class="row">
+        <div id="copyright">
+          &copy; Copyright Tati Doces Ltda. 2017
+        </div>
+      </div>
+      <!-- row -->
     </div>
+    <!-- container -->
+  </footer>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
 
-  </body>
+</body>
+
 </html>

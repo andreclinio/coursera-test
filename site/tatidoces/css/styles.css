@@ -4,7 +4,7 @@
 }
 
 body {
-  font-size: 1.4vw;
+  font-size: 14px;
   color: #000000;
   background-color: #005231;
   font-family: 'Helvetica';
@@ -26,8 +26,8 @@ body {
 
 
 #phones {
-  margin: 0px 50px 10px 50px;
-  padding: 20px;
+  margin: 0px 20px 0px 20px;
+  padding: 10px 10px;
   /* background: #ff0000; */
   vertical-align: middle;
   height: 100px;
@@ -48,6 +48,11 @@ body {
   text-decoration: none;
 }
 
+#social a {
+  text-decoration: none;
+  width: 32px;
+  height: 32px;
+}
 span.phone { 
   font-size: 0.85em;
   color: #005231;
@@ -62,19 +67,30 @@ span.phone-high {
 }
 
 #social {
-  margin: 0px 10px 10px 10px;
+  margin: 0px 20px 00px 20px;
   padding: 0px;
-  background: #aaaaaa; 
-  height: 100px;
+  background: #ffffff;  
   width: 100px;
+  height: 100px;
   float: left;
   position: relative;
 }
 
 #facebook {
   background: url('../images/facebook.png') no-repeat; 
+  left: 0px;
+  top: 0px;
+  width: 32px;
+  height:32px;
+  position: absolute;
+}
+
+#whatsapp {
+  background: url('../images/whatsapp.png') no-repeat; 
   right: 0px;
-  bottom: 0px;
+  top: 0px;
+  width: 32px;
+  height:32px;
   position: absolute;
 }
 
@@ -82,6 +98,8 @@ span.phone-high {
   background: url('../images/twitter.png') no-repeat; 
   left: 0px;
   bottom: 0px;
+  width: 32px;
+  height:32px;
   position: absolute;
 }
 
@@ -115,10 +133,11 @@ span.phone-high {
   border: 2px solid #aaaaaa;
   margin: 0px;
   padding: 0px;
+  margin-bottom: 20px;
 }
 
 
-#partykit, #mapa, #peixeurbano {
+#products, #mapa, #peixeurbano {
   width: 100%;
   height: 250px;
   position: relative;
@@ -127,8 +146,8 @@ span.phone-high {
   overflow: hidden;
 }
 
-#partykit {
-  background: url('../images/partykit.jpg') no-repeat;
+#products {
+  background: url('../images/products.jpg') no-repeat;
   background-position: center;
 }
 
@@ -138,11 +157,11 @@ span.phone-high {
 }
 
 
-#partykit:hover, #mapa:hover, #peixeurbano:hover {
+#products:hover, #mapa:hover, #peixeurbano:hover {
   box-shadow: 0 1px 5px 1px #cccccc;
 }
 
-#partykit span, #mapa span, #peixeurbano span {
+#products span, #mapa span, #peixeurbano span {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -155,12 +174,48 @@ span.phone-high {
   opacity: .8;
 }
 
+/* =============================================== */
+/* Footer */
+/* =============================================== */
+
+.panel-footer {
+  font-size: 12px;
+  margin-top: 30px;
+  color: #ffffff;
+  background: #222;
+  margin-bottom: 30px;
+}
+
+.panel-footer section {
+  padding: 20px;
+}
+
+.title-footer {
+  font-weight: bold;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.subtitle-footer {
+  margin-top:10px;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.0em;
+}
+
+#testimonials-footer > div {
+  font-style: italic;
+  line-height: 1.5;
+}
+
+#copyright {
+  text-align: center;
+  margin-top: 20px;
+}
+
 /* ---- Large ------------------------------------ */
 @media (min-width: 1200px) {
-    #call {
-    display: none;
-  }
-
   .container .jumbotron {
     background: url('../images/jumbotron-lg.jpg') no-repeat;
     height: 773px;
@@ -170,41 +225,34 @@ span.phone-high {
 
 /* ---- Medium ----------------------------------- */
 @media (min-width: 992px) and (max-width: 1199px) {
-    #call {
-    display: none;
-  }
-
   .container .jumbotron {
     background: url('../images/jumbotron-md.jpg') no-repeat;
     height: 640px;
   }
-
 }
 
 /* ---- Small ------------------------------------ */
 @media (min-width: 768px) and (max-width: 991px) {
-  #phones {
-    display: none;
-  }
-  #call {
-    display: none;
-  }  
-
   .container .jumbotron {
     background: url('../images/jumbotron-sm.jpg') no-repeat;
     height: 495px;
   }
-}
 
-/* ---- Extra Small ------------------------------ */
-@media (max-width: 767px) {
   #phones {
     display: none;
   }
 
+}
+
+/* ---- Extra Small ------------------------------ */
+@media (max-width: 767px) {
   .container .jumbotron {
     background: url('../images/jumbotron-xs.jpg') no-repeat;
     height: 494px;
+  }
+
+  #phones {
+    display: none;
   }
 
   #partykit {
@@ -217,4 +265,19 @@ span.phone-high {
     margin: 0 auto 15px;
   }
 
+  #addresses-footer div {
+    text-align: center;
+  }
+
+  #testimonials-footer div {
+    text-align: center;
+  }
+
+  #partykit-footer div {
+    text-align: center;
+  }
+
+   section hr {
+     width: 50%;
+   }
 }
