@@ -2,8 +2,7 @@
    "use-strict";
 
    angular.module("UsersApp", [])
-   .controller("AddController", AddController)
-   .controller("ListController", ListController)
+   .controller("UsersController", UsersController)
    .provider("UserService", UserServiceProvider)
    .config(Config);
 
@@ -12,38 +11,35 @@
       UserServiceProvider.defaults.maxItems = 2;
    }
 
-   AddController.$inject = ["UserService"];
-   function AddController(UserService) {
-      var addctrl = this;
+   UsersController.$inject = ["UserService"];
+   function UsersController(UserService) {
+      var ctrl = this;
+      ctrl.users = UserService.getAllUsers();
 
-      addctrl.clear = function() {
-         addctrl.firstName = "";
-         addctrl.lastName = "";
-         addctrl.login = "";
+      ctrl.clear = function() {
+         ctrl.firstName = "";
+         ctrl.lastName = "";
+         ctrl.login = "";
       }
 
-      addctrl.addUser = function() {
+      ctrl.addUser = function() {
          try {
-            UserService.addUser(new User(addctrl.firstName, addctrl.lastName, addctrl.login))
-            addctrl.clear();
-            addctrl.errorMessage = null;
+            UserService.addUser(new User(ctrl.firstName, ctrl.lastName, ctrl.login))
+            ctrl.clear();
+            ctrl.errorMessage = null;
          }
          catch(error) {
-            addctrl.errorMessage = error.message;
+            ctrl.errorMessage = error.message;
          }
       };
 
-      addctrl.clear();
-   }
-
-   ListController.$inject = ["UserService"];
-   function ListController(UserService) {
-      var listctrl = this;
-      listctrl.users = UserService.getAllUsers();
-
-      listctrl.delUser = function (login) {
+      ctrl.delUser = function (login) {
          UserService.delUser(login);
+         ctrl.errorMessage = null;
+         ctrl.clear();
       }
+
+      ctrl.clear();
    }
 
    function User(firstName, lastName, login) {

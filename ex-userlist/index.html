@@ -6,28 +6,27 @@
     <link rel="stylesheet" href="css/styles.css">
     <title> List of Users</title>
 </head>
-<body>
+<body ng-controller="UsersController as ctrl">
     <h1>Users</h1>
-    <div ng-controller="AddController as addctrl">
+    <div>
        <span class="mylabel">First Name</span>
-       <input type="text" placeholder="Ex. Zé" ng-model="addctrl.firstName"><br>
+       <input type="text" placeholder="Ex. Zé" ng-model="ctrl.firstName"><br>
 
        <span class="mylabel">Last Name</span>
-       <input type="text"  placeholder="Ex. Couve" ng-model="addctrl.lastName"><br>
+       <input type="text"  placeholder="Ex. Couve" ng-model="ctrl.lastName"><br>
 
        <span class="mylabel">Login</span>
-       <input type="text"  placeholder="Ex. zc" ng-model="addctrl.login"><br>
-       <button ng-click="addctrl.addUser()">Add</button>
-      <div ng-if="addctrl.errorMessage" class="error">Error: {{addctrl.errorMessage}}</div>
+       <input type="text"  placeholder="Ex. zc" ng-model="ctrl.login"><br>
+       <button ng-click="ctrl.addUser()">Add</button>
+      <div ng-if="ctrl.errorMessage" class="error">Error: {{ctrl.errorMessage}}</div>
 
     </div>
-
     <h2>List</h2>
-    <div ng-controller="ListController as listctrl">
+    <div>
        <ul>
-          <li ng-repeat="user in listctrl.users">
+          <li ng-repeat="user in ctrl.users">
              {{user.firstName + " " + user.lastName | uppercase}} - login: {{user.login}}
-             <button ng-click="listctrl.delUser(user.login)">Del</button>
+             <button ng-click="ctrl.delUser(user.login)">Del</button>
           </li>
        </ul>
     </div>
