@@ -3,18 +3,18 @@
 
    angular.module("UsersApp", [])
    .controller("UsersController", UsersController)
-   .provider("UserService", UserServiceProvider)
+   .provider("UsersService", UsersServiceProvider)
    .config(Config);
 
-   Config.$inject = ['UserServiceProvider'];
-   function Config(UserServiceProvider) {
-      UserServiceProvider.defaults.maxItems = 2;
+   Config.$inject = ['UsersServiceProvider'];
+   function Config(UsersServiceProvider) {
+      UsersServiceProvider.defaults.maxItems = 2;
    }
 
-   UsersController.$inject = ["UserService"];
-   function UsersController(UserService) {
+   UsersController.$inject = ["UsersService"];
+   function UsersController(UsersService) {
       var ctrl = this;
-      ctrl.users = UserService.getAllUsers();
+      ctrl.users = UsersService.getAllUsers();
 
       ctrl.clear = function() {
          ctrl.firstName = "";
@@ -24,7 +24,7 @@
 
       ctrl.addUser = function() {
          try {
-            UserService.addUser(new User(ctrl.firstName, ctrl.lastName, ctrl.login))
+            UsersService.addUser(new User(ctrl.firstName, ctrl.lastName, ctrl.login))
             ctrl.clear();
             ctrl.errorMessage = null;
          }
@@ -34,7 +34,7 @@
       };
 
       ctrl.delUser = function (login) {
-         UserService.delUser(login);
+         UsersService.delUser(login);
          ctrl.errorMessage = null;
          ctrl.clear();
       }
@@ -48,7 +48,7 @@
       this.login = login;
    }
 
-   function UserService(maxItems) {
+   function UsersService(maxItems) {
       var service = this;
       service.list = [];
       service.maxItems = maxItems;
@@ -74,13 +74,13 @@
       }
    }
 
-   function UserServiceProvider() {
+   function UsersServiceProvider() {
       var provider = this;
       provider.defaults = {
          maxItems: 1,
       };
       provider.$get = function() {
-         var service = new UserService(provider.defaults.maxItems)
+         var service = new UsersService(provider.defaults.maxItems)
          return service;
       }
    }
