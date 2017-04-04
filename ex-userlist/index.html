@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="UsersApp">
+<head>
+    <script src="js/angular.min.js"></script>
+    <script src="app.js"> </script>
+    <title> List of Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <div ng-controller="AddController as addctrl">
+       <span class="mylabel">First Name</span>
+       <input type="text" placeholder="Ex. Zé" ng-model="addctrl.firstName"><br>
+
+       <span class="mylabel">Last Name</span>
+       <input type="text"  placeholder="Ex. Couve" ng-model="addctrl.lastName"><br>
+
+       <span class="mylabel">Login</span>
+       <input type="text"  placeholder="Ex. zc" ng-model="addctrl.login"><br>
+       <button ng-click="addctrl.addUser()">Add</button>
+    </div>
+
+    <h2>List</h2>
+    <div ng-controller="ListController as listctrl">
+       <ul>
+          <li ng-repeat="user in listctrl.users">
+             {{user.firstName + " " + user.lastName | uppercase}} - login: {{user.login}}
+             <button ng-click="listctrl.delUser(user.login)">Del</button>
+          </li>
+       </ul>
+    </div>
+    <hr>
+</body>
+</html>
