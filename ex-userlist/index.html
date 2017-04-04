@@ -3,6 +3,7 @@
 <head>
     <script src="js/angular.min.js"></script>
     <script src="app.js"> </script>
+    <link rel="stylesheet" href="css/styles.css">
     <title> List of Users</title>
 </head>
 <body>
@@ -17,6 +18,8 @@
        <span class="mylabel">Login</span>
        <input type="text"  placeholder="Ex. zc" ng-model="addctrl.login"><br>
        <button ng-click="addctrl.addUser()">Add</button>
+      <div ng-if="addctrl.errorMessage" class="error">Error: {{addctrl.errorMessage}}</div>
+
     </div>
 
     <h2>List</h2>

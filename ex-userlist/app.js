@@ -4,7 +4,13 @@
    angular.module("UsersApp", [])
    .controller("AddController", AddController)
    .controller("ListController", ListController)
-   .service("UserService", UserService);
+   .provider("UserService", UserServiceProvider)
+   .config(Config);
+
+   Config.$inject = ['UserServiceProvider'];
+   function Config(UserServiceProvider) {
+      UserServiceProvider.defaults.maxItems = 2;
+   }
 
    AddController.$inject = ["UserService"];
    function AddController(UserService) {
@@ -17,8 +23,14 @@
       }
 
       addctrl.addUser = function() {
-         UserService.addUser(new User(addctrl.firstName, addctrl.lastName, addctrl.login))
-         addctrl.clear();
+         try {
+            UserService.addUser(new User(addctrl.firstName, addctrl.lastName, addctrl.login))
+            addctrl.clear();
+            addctrl.errorMessage = null;
+         }
+         catch(error) {
+            addctrl.errorMessage = error.message;
+         }
       };
 
       addctrl.clear();
@@ -40,26 +52,40 @@
       this.login = login;
    }
 
-   function UserService() {
-      var userService = this;
-      userService.list = [];
+   function UserService(maxItems) {
+      var service = this;
+      service.list = [];
+      service.maxItems = maxItems;
 
-      userService.getAllUsers = function() {
-         return userService.list;
+      service.getAllUsers = function() {
+         return service.list;
       }
 
-      userService.addUser = function (user) {
-         userService.list.push(user);
+      service.addUser = function (user) {
+         if (maxItems !== undefined && service.list.length >= maxItems) {
+            throw new Error ("Max (" + maxItems + ") reached.")
+         }
+         service.list.push(user);
       }
 
-      userService.delUser = function(login) {
-         var idx = userService.list.findIndex(function (user) {
+      service.delUser = function(login) {
+         var idx = service.list.findIndex(function (user) {
             return user.login === login;
          });
          if (idx >= 0) {
-            userService.list.splice(idx, 1);
+            service.list.splice(idx, 1);
          }
       }
    }
 
+   function UserServiceProvider() {
+      var provider = this;
+      provider.defaults = {
+         maxItems: 1,
+      };
+      provider.$get = function() {
+         var service = new UserService(provider.defaults.maxItems)
+         return service;
+      }
+   }
 })()
