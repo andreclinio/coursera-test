@@ -111,7 +111,6 @@
         var items = boughtList.splice(index, 1);
         var item = items[0];
         toBuyList.push(item);
-        console.log("->", toBuyList);
      }
 
      return {
