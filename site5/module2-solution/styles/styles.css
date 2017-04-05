@@ -14,6 +14,10 @@ li > button {
   margin-left: 6px;
 }
 
-button > span {
+#buy-btn > span {
   color: green;
+}
+
+#forget-btn > span {
+  color: red;
 }

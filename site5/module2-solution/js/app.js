@@ -53,7 +53,7 @@
      }
 
      function getNumItemsBought() {
-       return ctrl.getBoughtList().length;  
+       return ctrl.getBoughtList().length;
      }
 
      function hasSomethingBought() {
