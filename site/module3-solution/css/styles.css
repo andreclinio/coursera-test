@@ -26,6 +26,11 @@
     padding: 5px;
 }
 
+#main-menu li {
+  background-color: #ddddff;
+  border: 1px solid black;
+}
+
 .end-section {
     font-style: normal;
     font-size: 0.9em;
