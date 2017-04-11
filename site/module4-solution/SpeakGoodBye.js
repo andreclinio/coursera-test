@@ -6,6 +6,8 @@
 
 (function(window) {
 
+   "use strict";
+
 
 // STEP 7: Create an object, called 'byeSpeaker' to which you will attach
 // the "speak" method and which you will expose to the global context

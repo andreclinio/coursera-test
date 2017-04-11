@@ -33,6 +33,9 @@ WARNING!!! WARNING!!!
 // (Note, Step 2 will be done in the SpeakHello.js file.)
 
 (function () {
+
+  "use strict";
+
   var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
 // STEP 10:
@@ -40,7 +43,7 @@ WARNING!!! WARNING!!!
 // using the 'speak' method or either helloSpeaker's or byeSpeaker's
 // 'speak' method.
 // See Lecture 50, part 1
-   for( n in names ) {
+   for( var n in names ) {
      var name = names[n];
 
   // STEP 11:
