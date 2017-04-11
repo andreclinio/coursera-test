@@ -1,0 +1,9 @@
+<h2>{{title}}</h2>
+<div>
+   <ul>
+      <li ng-repeat="user in usersController.users">
+         {{user.firstName + " " + user.lastName | uppercase}} - login: {{user.login}}
+         <button ng-click="usersController.delUser(user.login)">Del</button>
+      </li>
+   </ul>
+</div>

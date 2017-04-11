@@ -3,8 +3,21 @@
 
    angular.module("UsersApp", [])
    .controller("UsersController", UsersController)
+   .directive("usersList", UsersListDirective)
    .provider("UsersService", UsersServiceProvider)
    .config(Config);
+
+   function UsersListDirective() {
+     var ddo = {
+        restrict: 'E',
+        templateUrl: "userlist.tmpl.html",
+        scope: {
+           usersController: "=",
+           title: "@",
+        }
+     };
+     return ddo;
+   }
 
    Config.$inject = ['UsersServiceProvider'];
    function Config(UsersServiceProvider) {

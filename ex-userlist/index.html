@@ -17,19 +17,11 @@
 
        <span class="mylabel">Login</span>
        <input type="text"  placeholder="Ex. zc" ng-model="ctrl.login"><br>
-       <button ng-click="ctrl.addUser()">Add</button>
-      <div ng-if="ctrl.errorMessage" class="error">Error: {{ctrl.errorMessage}}</div>
 
+       <button ng-click="ctrl.addUser()">Add</button>
+       <div ng-if="ctrl.errorMessage" class="error">Error: {{ctrl.errorMessage}}</div>
     </div>
-    <h2>List</h2>
-    <div>
-       <ul>
-          <li ng-repeat="user in ctrl.users">
-             {{user.firstName + " " + user.lastName | uppercase}} - login: {{user.login}}
-             <button ng-click="ctrl.delUser(user.login)">Del</button>
-          </li>
-       </ul>
-    </div>
-    <hr>
+
+    <users-list title="Lista de Usuários" users-controller="ctrl"></users-list>
 </body>
 </html>
