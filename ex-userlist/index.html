@@ -6,22 +6,22 @@
     <link rel="stylesheet" href="css/styles.css">
     <title> List of Users</title>
 </head>
-<body ng-controller="UsersController as ctrl">
+<body ng-controller="UsersController as usersctrl">
     <h1>Users</h1>
     <div>
        <span class="mylabel">First Name</span>
-       <input type="text" placeholder="Ex. Zé" ng-model="ctrl.firstName"><br>
+       <input type="text" placeholder="Ex. Zé" ng-model="usersctrl.firstName"><br>
 
        <span class="mylabel">Last Name</span>
-       <input type="text"  placeholder="Ex. Couve" ng-model="ctrl.lastName"><br>
+       <input type="text"  placeholder="Ex. Couve" ng-model="usersctrl.lastName"><br>
 
        <span class="mylabel">Login</span>
-       <input type="text"  placeholder="Ex. zc" ng-model="ctrl.login"><br>
+       <input type="text"  placeholder="Ex. zc" ng-model="usersctrl.login"><br>
 
-       <button ng-click="ctrl.addUser()">Add</button>
-       <div ng-if="ctrl.errorMessage" class="error">Error: {{ctrl.errorMessage}}</div>
+       <button ng-click="usersctrl.addUser()">Add</button>
+       <div ng-if="usersctrl.errorMessage" class="error">Error: {{usersctrl.errorMessage}}</div>
     </div>
 
-    <users-list title="Lista de Usuários" users-controller="ctrl"></users-list>
+    <users-list title="Lista de Usuários" users="usersctrl.users"></users-list>
 </body>
 </html>

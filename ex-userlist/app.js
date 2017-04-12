@@ -12,11 +12,27 @@
         restrict: 'E',
         templateUrl: "userlist.tmpl.html",
         scope: {
-           usersController: "=",
+           users: "<",
            title: "@",
-        }
+        },
+        controller: UserListDirectiveController,
+        controllerAs: "ctrl",
+        bindToController: true,
      };
      return ddo;
+   }
+
+   function UserListDirectiveController() {
+      var ctrl = this;
+      ctrl.hasClinioInList = function () {
+         for (var i = 0; i < ctrl.users.length; i++) {
+            var login = ctrl.users[i].login;
+            if (login.toLowerCase().indexOf("clinio") !== -1) {
+               return true;
+            }
+         }
+         return false;
+      };
    }
 
    Config.$inject = ['UsersServiceProvider'];

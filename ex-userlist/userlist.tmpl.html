@@ -1,9 +1,12 @@
+<hr>
 <h2>{{title}}</h2>
 <div>
    <ul>
-      <li ng-repeat="user in usersController.users">
+      <li ng-repeat="user in ctrl.users">
          {{user.firstName + " " + user.lastName | uppercase}} - login: {{user.login}}
-         <button ng-click="usersController.delUser(user.login)">Del</button>
+         <!-- <button ng-click="usersController.delUser(user.login)">Del</button> -->
       </li>
    </ul>
+   <div class="error" ng-if="ctrl.hasClinioInList()">Clinio appeared here!</div>
+   <hr>
 </div>
