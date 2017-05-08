@@ -13,12 +13,15 @@
        ctrl.list = "";
        ctrl.message = "";
        ctrl.remark = "";
+       ctrl.count = 0;
      }
 
      function check() {
         var text = ctrl.list;
         if (!text) {
-           ctrl.message = "Nothing? On a diet?!"
+           ctrl.message = "No data! Nothing? On a diet?!";
+           ctrl.count = 0;
+           ctrl.remark = "";
            return;
         }
 
@@ -28,7 +31,7 @@
         var discount = 0;
         for (var i = 0; i < list.length; i++) {
            var tmp = list[i];
-           tmp = tmp.replace(/ /g, "");
+           tmp = tmp.trim();
            if (list[i] !== tmp) { 
               remark += "Not consider spaces in item #" + (i+1) + " [" + tmp + "]; ";
            }
@@ -40,13 +43,18 @@
            console.log(list[i]);
         }
 
-        var n = list.length - discount;
+        ctrl.count = list.length - discount;
         ctrl.remark = remark;
-        if (n <= 3) {
-           ctrl.message = "Enjoy! Only " + n + " items.";
+        if (ctrl.count === 0) {
+           ctrl.message = "No items!";
         }
-        else { 
-           ctrl.message = "Too much! (" + n + " items)";
+        else {
+           if (ctrl.count <= 3) {
+              ctrl.message = "Enjoy! Only " + ctrl.count + " items.";
+           }
+           else { 
+           ctrl.message = "Too much! (" + ctrl.count + " items)";
+           }
         }
      }
 
