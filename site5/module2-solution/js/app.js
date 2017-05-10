@@ -76,6 +76,8 @@
              new Item("Pepsi", 1, "bottle"),
              new Item("Ham", 3, "kilo"),
              new Item("Bread", 5, "pieces"),
+             new Item("Chocolate", 1, "bar"),
+             new Item("Cheese", 2, "pieces"),
      ];
      var boughtList = [];
 
