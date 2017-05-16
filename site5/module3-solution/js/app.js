@@ -11,7 +11,7 @@ function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
     scope: {
-      foundItems: '<',
+      theItems: '<',
       myTitle: '@title',
       onRemove: '&'
     },
@@ -42,12 +42,12 @@ function NarrowItDownController(MenuSearchService) {
      var promisse = MenuSearchService.getMatchedMenuItems(searchTerm);
      promisse.then(
        function(data){
-          ctrl.found = data;
+          narrowctrl.foundItems = data;
           console.log('data', data);
        },
        function(status) {
           console.log("Falha code: ", status);
-          ctrl.found = [];
+          narrowctrl.foundItems = [];
        }
     );
   }
@@ -61,19 +61,26 @@ function MenuSearchService($http, $q) {
      getMatchedMenuItems: getMatchedMenuItems
   };
 
+ function getFilterPromisse(reqPromisse, searchTerm) {
+    var promisse = $q(function(resolve, reject) {
+      reqPromisse.then(function(response) {
+        var rawData = response.data;
+        var data = rawData.menu_items;
+        var list = data.filter(function(elem) {
+           return elem.description.includes(searchTerm);
+        });
+        resolve(list);
+      },
+      function (response){
+        reject(response.status);
+      });
+   });
+   return promisse;
+ }
+
  function getMatchedMenuItems(searchTerm) {
     var reqPromisse = getRequestPromisse();
-    var promisse = reqPromisse.then(function(response) {
-      var rawData = response.data;
-      var data = rawData.menu_items;
-      var list = data.filter(function(elem) {
-         return elem.description.includes(searchTerm);
-      });
-      resolve(list);
-    },
-    function (response){
-      reject(response.status);
-    });
+    var promisse = getFilterPromisse(reqPromisse, searchTerm);
     return promisse;
  }
 
