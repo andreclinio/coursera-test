@@ -10,10 +10,12 @@ angular.module('NarrowItDownApp', [])
 function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
+    restrict: 'E',
     scope: {
-      theItems: '<',
+      isSearching: '<',
+      foundItems: '<',
       myTitle: '@title',
-      onRemove: '&'
+      onRemove: '&',
     },
     controller: FoundItemsDirectiveController,
     controllerAs: 'foundctrl',
@@ -24,7 +26,12 @@ function FoundItemsDirective() {
 
 function FoundItemsDirectiveController() {
    var foundctrl = this;
+   activate();
+   function activate() {
+   }
 }
+
+
 
 
 // Controller
@@ -35,21 +42,43 @@ function NarrowItDownController(MenuSearchService) {
 
   function activate() {
     narrowctrl.search = search;
+    narrowctrl.onRemove = onRemove;
+    narrowctrl.clear = clear;
+
+    clear();
+  }
+
+  function clear(index) {
+    narrowctrl.foundItems = [];
+    narrowctrl.searchTerm = null;
+    narrowctrl.isSearching = false;
+    narrowctrl.title = null;
+  }
+
+  function onRemove(index) {
+    narrowctrl.foundItems.splice(index, 1);
   }
 
   function search(searchTerm) {
-     console.log('Searching: ', searchTerm)
      var promisse = MenuSearchService.getMatchedMenuItems(searchTerm);
      promisse.then(
        function(data){
           narrowctrl.foundItems = data;
-          console.log('data', data);
+
        },
        function(status) {
           console.log("Falha code: ", status);
           narrowctrl.foundItems = [];
        }
     );
+    narrowctrl.isSearching = true;
+    narrowctrl.title = 'Searched for "' + searchTerm + '"';
+  }
+
+  function getFoundItems() {
+    var items = narrowctrl.foundItems
+    console.log("found: " + items)
+    return items;
   }
 }
 

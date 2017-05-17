@@ -1,3 +1,18 @@
-<div>
-  <h3>{{foundctrl.myTitle}} - Result</h3>
+
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div ng-if="foundctrl.myTitle" class="panel panel-heading">{{foundctrl.myTitle}}</div>
+      <div ng-repeat="item in foundctrl.foundItems" class="panel-body panel-info">
+         <div class="panel panel-body">
+            {{($index) + 1}}: {{item.name | uppercase }} ({{item.short_name}}) <br> {{item.description}}
+         </div>
+         <button class="btn btn-primary" ng-click='foundctrl.onRemove({index:$index})'>Don't want {{item.name}}!</button>
+      </div>
+      <div ng-if="foundctrl.isSearching && foundctrl.foundItems.length === 0" class="panel panel-warning">
+         Nothing found!
+      </div>
+      <div ng-if="foundctrl.isSearching" class="panel panel-footer">#Items {{foundctrl.foundItems.length}}</div>
+    </div>
+  </div>
 </div>
