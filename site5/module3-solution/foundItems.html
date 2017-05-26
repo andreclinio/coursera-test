@@ -1,18 +1,28 @@
 
-<div class="container">
+<div ng-if='!foundctrl.showProgress' class="container">
   <div class="panel-group">
     <div class="panel panel-primary">
       <div ng-if="foundctrl.myTitle" class="panel panel-heading">{{foundctrl.myTitle}}</div>
       <div ng-repeat="item in foundctrl.foundItems" class="panel-body panel-info">
          <div class="panel panel-body">
-            {{($index) + 1}}: {{item.name | uppercase }} ({{item.short_name}}) <br> {{item.description}}
+            <span>{{($index) + 1}}: {{item.name | uppercase }}</span>
+            <span class='badge'>{{item.short_name}}</span>
+            <div class='description'> {{item.description | uppercase}} </div>
+
+           <button class="btn btn-primary" ng-click='foundctrl.onRemove({index:$index})'>
+              <span class="glyphicon glyphicon-remove"></span>
+              Don't want {{item.name}}!
+           </button>
          </div>
-         <button class="btn btn-primary" ng-click='foundctrl.onRemove({index:$index})'>Don't want {{item.name}}!</button>
       </div>
-      <div ng-if="foundctrl.isSearching && foundctrl.foundItems.length === 0" class="alert alert-warning">
-         Nothing found!
+      <div ng-if="foundctrl.showResume" class="alert {{foundctrl.getAlertClass()}}">
+         {{foundctrl.getAlertText()}}
       </div>
-      <div ng-if="foundctrl.isSearching" class="alert alert-info">#Items {{foundctrl.foundItems.length}}</div>
     </div>
   </div>
+</div>
+
+<div ng-if='foundctrl.showProgress' class='alert alert-info'>
+   <span class='glyphicon glyphicon-refresh glyphicon-spin wait'></span>
+   <div class='wait'> Processing... WAIT!</div>
 </div>

@@ -8,3 +8,32 @@ input[type="text"] {
   float: left;
   margin-right: 10px;
 }
+
+div.description {
+   color: blue;
+   font-style: italic;
+}
+
+span.badge {
+   color: lavender;
+   background-color: midnightblue;
+   font-family: sans-serif;
+}
+
+.glyphicon-spin {
+    -webkit-animation: mymove 1000ms infinite linear;
+    animation: mymove 1000ms infinite linear;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    50% {-webkit-transform: rotate(359deg);}
+}
+/* Standard syntax */
+@keyframes mymove {
+    50% {transform: rotate(359deg);}
+}
+
+.wait {
+   color: red;
+   font-size: 24px;
+}

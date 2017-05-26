@@ -17,13 +17,20 @@
         <div class="row">
            <div class="form-group">
                  <input type="text" placeholder="search term" class="form-control" ng-model='narrowctrl.searchTerm'>
-                 <button class="btn btn-primary" ng-click='narrowctrl.search(narrowctrl.searchTerm)'>Narrow It Down For Me!</button>
-                 <button class="btn btn-warning" ng-click='narrowctrl.clear()'>Clear</button>
+                 <button class="btn btn-primary" ng-click='narrowctrl.search(narrowctrl.searchTerm)'>
+                    <span class="glyphicon glyphicon-search"></span>
+                    Narrow It Down For Me!
+                 </button>
+                 <button class="btn btn-warning" ng-click='narrowctrl.clear()'>
+                    <span class="glyphicon glyphicon-erase"></span>
+                    Clear
+                 </button>
            </div>
          <div class="row">
             <!-- found-items should be implemented as a component -->
-            <found-items title="{{narrowctrl.title}}" found-items="narrowctrl.foundItems" is-searching="narrowctrl.isSearching"
-             on-remove="narrowctrl.onRemove(index)">
+            <found-items title="{{narrowctrl.title}}" found-items="narrowctrl.foundItems"
+               show-resume="narrowctrl.showResume" show-progress="narrowctrl.showProgress"
+               on-remove="narrowctrl.onRemove(index)">
             </found-items>
         </div>
      </div>

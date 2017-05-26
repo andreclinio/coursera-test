@@ -12,10 +12,11 @@ function FoundItemsDirective() {
     templateUrl: 'foundItems.html',
     restrict: 'E',
     scope: {
-      isSearching: '<',
+      showResume: '<',
       foundItems: '<',
       myTitle: '@title',
       onRemove: '&',
+      showProgress: '<'
     },
     controller: FoundItemsDirectiveController,
     controllerAs: 'foundctrl',
@@ -27,8 +28,32 @@ function FoundItemsDirective() {
 function FoundItemsDirectiveController() {
    var foundctrl = this;
    activate();
-   function activate() {
+
+   function getHowManyItemsFound() {
+      return foundctrl.foundItems.length;
    }
+
+   function getAlertClass() {
+      var n = getHowManyItemsFound();
+      if (n === 0) {
+         return 'alert-warning';
+      }
+      return 'alert-info';
+   }
+
+   function getAlertText() {
+      var n = getHowManyItemsFound();
+      if (n === 0) {
+         return 'Nothing found!';
+      }
+      return 'Found #' + n + ' itens';
+   }
+
+   function activate() {
+      foundctrl.getAlertClass = getAlertClass;
+      foundctrl.getAlertText = getAlertText;
+   }
+   return foundctrl;
 }
 
 
@@ -51,7 +76,7 @@ function NarrowItDownController(MenuSearchService) {
   function clear(index) {
     narrowctrl.foundItems = [];
     narrowctrl.searchTerm = null;
-    narrowctrl.isSearching = false;
+    narrowctrl.showResume = false;
     narrowctrl.title = null;
   }
 
@@ -60,19 +85,31 @@ function NarrowItDownController(MenuSearchService) {
   }
 
   function search(searchTerm) {
+     narrowctrl.showProgress = true;
+     if (!searchTerm) {
+        narrowctrl.title = "Asked for nothing!";
+        narrowctrl.foundItems = [];
+        narrowctrl.showResume = false;
+        narrowctrl.showProgress = false;
+        return;
+     }
      var promisse = MenuSearchService.getMatchedMenuItems(searchTerm);
      promisse.then(
        function(data){
           narrowctrl.foundItems = data;
-
+          narrowctrl.showResume = true;
+          narrowctrl.title = 'Searched for "' + searchTerm + '"';
        },
        function(status) {
-          console.log("Falha code: ", status);
           narrowctrl.foundItems = [];
+          narrowctrl.title = 'Failed for query"' + searchTerm + '" - status ' + status;
+          narrowctrl.showResume = false;
+       }
+    ).finally(
+       function() {
+          narrowctrl.showProgress = false;
        }
     );
-    narrowctrl.isSearching = true;
-    narrowctrl.title = 'Searched for "' + searchTerm + '"';
   }
 
   function getFoundItems() {
