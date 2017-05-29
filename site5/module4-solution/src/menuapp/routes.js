@@ -1,6 +1,8 @@
 // IIFE
 (function() {
 
+'use strict';
+
 angular.module('MenuApp')
 .config(RoutesConfig);
 
@@ -11,12 +13,18 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
    $stateProvider.state('home', {
       url: '/',
-      templateUrl: 'src/menuapp/templates/home.template.html'
+      templateUrl: 'src/menuapp/home.html'
    });
 
    $stateProvider.state('categories', {
       url: '/categories',
-      templateUrl: 'src/menuapp/templates/categories.template.html'
+      templateUrl: 'src/menuapp/categories.html',
+      controller: 'CategoriesController as vm',
+      resolve: {
+          categoriesList: ['MenuDataService', function(MenuDataService) {
+            return MenuDataService.getAllCategories()
+         }]
+      }
    });
 
 

@@ -1,11 +1,13 @@
 // IIFE
 (function() {
 
+'use strict';
+
 angular.module('Data')
 .service("MenuDataService", MenuDataService);
 
-MenuDataService.$inject = ['$q', '$http'];
-fucntion MenuDataService($q, $http) {
+MenuDataService.$inject = ['$http'];
+function MenuDataService($http) {
 
   function getAllCategories() {
      var req = {
@@ -31,8 +33,6 @@ fucntion MenuDataService($q, $http) {
   };
   return service;
 }
-
-
 
 // IIFE
 })();

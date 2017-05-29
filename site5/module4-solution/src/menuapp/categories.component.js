@@ -1,11 +1,13 @@
 // IIFE
 (function() {
 
-angular.module('MenuApp').
-component("Categories", {
+'use strict';
+
+var module = angular.module('MenuApp');
+module.component("categories", {
    templateUrl: 'src/menuapp/templates/categories.template.html',
-   bindings:{
-      categories: '<'
+   bindings: {
+      categoriesList: '<'
    }
 });
 
