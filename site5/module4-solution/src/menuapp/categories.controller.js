@@ -9,7 +9,6 @@ angular.module('MenuApp')
 CategoriesController.$inject = ['response'];
 function CategoriesController(response) {
   var vm = this;
-  console.log(response.status);
   vm.categoriesList = response.data;
 }
 

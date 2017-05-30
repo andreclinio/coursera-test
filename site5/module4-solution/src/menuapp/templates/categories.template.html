@@ -1,6 +1,6 @@
 <div class="panel panel-info">
-  <div ng-sref-active='active' class='panel-heading' ng-repeat="c in $ctrl.categoriesList">
-       <a ui-sref="categories.items({short_name: c.short_name})">{{ c.name }}</a>
+  <div class='panel-heading' ng-repeat="c in $ctrl.categoriesList">
+       <a ui-sref-active='active' ui-sref="categories.items({short_name: c.short_name})">{{ c.name }}</a>
        <span class='badge'>{{c.short_name | uppercase}}</span>
   </div>
 </ul>
