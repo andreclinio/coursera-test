@@ -5,12 +5,12 @@
 angular.module('MenuApp')
 .controller('ItemsController', ItemsController);
 
-ItemsController.$inject = ['itemsList'];
-function ItemsController(itemsList) {
+ItemsController.$inject = ['response'];
+function ItemsController(response) {
   var vm = this;
-  vm.itemsList = itemsList.data.menu_items;
-  vm.category = itemsList.data.category;
-  console.log(itemsList);
+  vm.itemsList = response.data.menu_items;
+  vm.category = response.data.category;
+  console.log(response);
 }
 
 })();

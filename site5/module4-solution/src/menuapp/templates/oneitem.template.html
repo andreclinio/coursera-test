@@ -1,6 +1,22 @@
 
-<div class="panel panel-body">
-  <span>{{$ctrl.theItem.name | uppercase }} </span>
-  <span class='badge'>{{$ctrl.theItem.short_name}}</span>
-  <div>{{$ctrl.theItem.description}}</div>
+<div class="panel panel-info">
+  <div class='panel-heading'>
+     {{$ctrl.theItem.name | uppercase }}
+     <span class='badge'>{{$ctrl.theItem.short_name}}</span>
+  </div>
+  <div class="panel-body">
+    {{$ctrl.theItem.description}}
+  </div>
+  <div class="panel-footer">
+     Prices:
+     <ul>
+     <li ng-if='$ctrl.theItem.price_large != null'>
+        <span>{{$ctrl.theItem.price_large | currency : 'US$ '}}</span>
+        <span ng-if='$ctrl.theItem.large_portion_name != null'> - {{$ctrl.theItem.large_portion_name}}</span>
+     </li>
+     <li ng-if='$ctrl.theItem.price_small != null'>
+        <span>{{$ctrl.theItem.price_small | currency : 'US$ '}}</span>
+        <span ng-if='$ctrl.theItem.small_portion_name != null'> - {{$ctrl.theItem.small_portion_name}} </span>
+     </li>
+  </div>
 </div>

@@ -1,4 +1,10 @@
 <h2>Items for {{$ctrl.category.name}}</h2>
+
+<div ng-if='$ctrl.category.special_instructions != ""'>
+  <h4>Special Instructions</h4>
+  <span>{{$ctrl.category.special_instructions}}  </span>
+</div>
+
 <ul class="list-group">
-      <one-item ng-repeat="i in $ctrl.itemsList" the-item='i'></one-item>
+    <one-item ng-repeat="i in $ctrl.itemsList" the-item='i'></one-item>
 </ul>

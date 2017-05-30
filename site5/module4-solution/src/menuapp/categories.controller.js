@@ -6,10 +6,11 @@ angular.module('MenuApp')
 .controller('CategoriesController', CategoriesController);
 
 
-CategoriesController.$inject = ['categoriesList'];
-function CategoriesController(categoriesList) {
+CategoriesController.$inject = ['response'];
+function CategoriesController(response) {
   var vm = this;
-  vm.categoriesList = categoriesList.data;
+  console.log(response.status);
+  vm.categoriesList = response.data;
 }
 
 })();

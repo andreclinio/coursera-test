@@ -21,7 +21,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'src/menuapp/categories.html',
       controller: 'CategoriesController as vm',
       resolve: {
-          categoriesList: ['MenuDataService', function(MenuDataService) {
+          response: ['MenuDataService', function(MenuDataService) {
             return MenuDataService.getAllCategories()
          }]
       }
@@ -32,7 +32,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'src/menuapp/items.html',
       controller: 'ItemsController as vm',
       resolve: {
-          itemsList: ['MenuDataService', '$stateParams',
+          response: ['MenuDataService', '$stateParams',
             function(MenuDataService, $stateParams) {
               return MenuDataService.getItemsForCategory($stateParams.short_name);
             }

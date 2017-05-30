@@ -5,6 +5,8 @@
     <title>Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" href="src/img/favicon.png" type="image/png" sizes="32x32"/>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
@@ -24,6 +26,8 @@
    <script src="lib/angular.min.js"></script>
    <script src='lib/angular-ui-router.min.js'></script>
 
+   <link rel="stylesheet" href="src/css/menuapp.css">
+
    <script src="src/menuapp/menuapp.module.js"></script>
    <script src="src/data/data.module.js"></script>
 
@@ -36,13 +40,20 @@
    <script src="src/menuapp/items.controller.js"></script>
    <script src="src/menuapp/items.component.js"></script>
    <script src="src/menuapp/oneitem.component.js"></script>
+   <script src="src/menuapp/wait.component.js"></script>
 
 
   </head>
   <body ng-app='MenuApp'>
-     <div class='page-header'>
-        <h1>Main Restaurant Menu<h1>
-      </div>
-     <ui-view></ui-view>
+     <div class='panel panel-info'>
+        <div class='panel-heading'><h1>Main Restaurant Menu</h1></div>
+        <div class='panel-body'>
+          <ui-view></ui-view>
+        </div>
+        <div class='panel-footer'>
+           Just call us if you have any doubt....
+        </div>
+       <wait></wait>
+     </div>
   </body>
 </html>
