@@ -1,8 +1,8 @@
-<h2>Items for {{$ctrl.category.name}}</h2>
+<h2>{{$ctrl.itemsList.length}} Items for {{$ctrl.category.name}}</h2>
 
 <div ng-if='$ctrl.category.special_instructions != ""'>
   <h4>Special Instructions</h4>
-  <span>{{$ctrl.category.special_instructions}}  </span>
+  <h5>{{$ctrl.category.special_instructions}}  </h5>
 </div>
 
 <ul class="list-group">
