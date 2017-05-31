@@ -4,8 +4,10 @@
      {{$ctrl.theItem.name | uppercase }}
      <span class='badge'>{{$ctrl.theItem.short_name}}</span>
   </div>
-  <div class="panel-body">
+  <div ng-if='$ctrl.theItem.description.trim() !== ""'>
+     <div class="panel-body">
     {{$ctrl.theItem.description}}
+  </div>
   </div>
   <div class="panel-footer">
      Prices:
