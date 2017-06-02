@@ -4,15 +4,16 @@
 'use strict';
 
 angular.module('Data')
-.service("MenuDataService", MenuDataService);
+.service("MenuDataService", MenuDataService)
+.constant("BaseURL", "https://davids-restaurant.herokuapp.com");
 
-MenuDataService.$inject = ['$http'];
-function MenuDataService($http) {
+MenuDataService.$inject = ['$http', 'BaseURL'];
+function MenuDataService($http, BaseURL) {
 
   function getAllCategories() {
      var req = {
         method: 'GET',
-        url: 'https://davids-restaurant.herokuapp.com/categories.json'
+        url: BaseURL + '/categories.json'
      };
      var promisse = $http(req);
      return promisse;
@@ -21,7 +22,7 @@ function MenuDataService($http) {
   function getItemsForCategory(categoryShortName) {
      var req = {
        method: 'GET',
-       url: 'https://davids-restaurant.herokuapp.com/menu_items.json?category=' + categoryShortName
+       url: BaseURL + '/menu_items.json?category=' + categoryShortName
      };
      var promisse = $http(req);
      return promisse;
