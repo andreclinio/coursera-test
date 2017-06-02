@@ -26,7 +26,7 @@
              expect(data).toEqual(obj, 'objects should be equal!');
            },
            function(response) {
-             expect(false).toBeTrue().because('bad request' + response.status);
+             expect(false).toBeTrue('bad request' + response.status);
           }
        );
        $httpBackend.flush();
