@@ -18,7 +18,6 @@ function OneItemComponentController($element) {
    var $ctrl = this;
 
    $ctrl.getItemName = function() {
-      console.log("i", $ctrl.theItem);
       return $ctrl.theItem.name;
    }
 }
