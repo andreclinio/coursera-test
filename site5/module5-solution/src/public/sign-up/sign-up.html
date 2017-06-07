@@ -9,18 +9,31 @@
      <div class='form-group'>
        <input type='text' name='firstName'
               required ng-model='signUpCtrl.firstName' placeholder="ex. John">
+       <span ng-if='SignUpForm.firstName.$error.required && SignUpForm.firstName.$touched'
+             class="label label-danger">
+            First Name required!!!
+        </span>
      </div>
 
      <label>Last Name</label>
      <div class='form-group'>
        <input type='text' name='lastName'
               required ng-model='signUpCtrl.lastName' placeholder="ex. Silva">
+      <span ng-if='SignUpForm.lastName.$error.required && SignUpForm.lastName.$touched'
+            class="label label-danger">
+            Last name required!!!
+      </span>
+
      </div>
 
      <label>Email</label>
      <div class='form-group'>
        <input type='email' name='email'
               required ng-model='signUpCtrl.email' placeholder="ex. js@somewhere.com">
+       <span ng-if='SignUpForm.email.$error.required && SignUpForm.email.$touched'
+             class="label label-danger">
+             Email required!!!
+       </span>
      </div>
 
      <label>Phone Number</label>
@@ -31,11 +44,11 @@
 
      <label>Favorite</label>
      <div class='form-group'>
-        <select ng-model='signUpCtrl.favorite'>
+        <select ng-model='signUpCtrl.favoriteId'>
            <option value='{{i.id}}' ng-repeat='i in signUpCtrl.menuItems'> {{i.short_name}} -  {{i.name}}</option>
         </select>
      </div>
 
-     <button ng-disbled='SignUpForm.$invalid' class='btn btn-default' ng-click='signUpCtrl.doLogin()'> Sign Up</button>
+     <button ng-disabled='SignUpForm.$invalid' class='btn btn-default' ng-click='signUpCtrl.doLogin()'> Sign Up</button>
   </form>
 </div>
