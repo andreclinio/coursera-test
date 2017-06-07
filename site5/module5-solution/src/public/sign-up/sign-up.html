@@ -1,0 +1,41 @@
+
+<div class='container'>
+  <h1> Sign Up </h1>
+
+<!-- {{signUpCtrl.menuItems | json}} -->
+
+  <form name='SignUpForm' novalidate>
+     <label>First Name</label>
+     <div class='form-group'>
+       <input type='text' name='firstName'
+              required ng-model='signUpCtrl.firstName' placeholder="ex. John">
+     </div>
+
+     <label>Last Name</label>
+     <div class='form-group'>
+       <input type='text' name='lastName'
+              required ng-model='signUpCtrl.lastName' placeholder="ex. Silva">
+     </div>
+
+     <label>Email</label>
+     <div class='form-group'>
+       <input type='email' name='email'
+              required ng-model='signUpCtrl.email' placeholder="ex. js@somewhere.com">
+     </div>
+
+     <label>Phone Number</label>
+     <div class='form-group'>
+       <input type='text' name='phone'
+              ng-model='signUpCtrl.phoneNumber' placeholder="5555-5555">
+     </div>
+
+     <label>Favorite</label>
+     <div class='form-group'>
+        <select ng-model='signUpCtrl.favorite'>
+           <option value='{{i.id}}' ng-repeat='i in signUpCtrl.menuItems'> {{i.short_name}} -  {{i.name}}</option>
+        </select>
+     </div>
+
+     <button ng-disbled='SignUpForm.$invalid' class='btn btn-default' ng-click='signUpCtrl.doLogin()'> Sign Up</button>
+  </form>
+</div>

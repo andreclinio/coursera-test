@@ -1,0 +1,28 @@
+
+<div ng-if="myInfoCtrl.hasLoggedUser" class='container'>
+   <div class='row'>
+      <div class='col-sm-12 col-md-4'>
+        <h1> {{myInfoCtrl.loggedUser.getFullName()}} </h1>
+        <ul>
+          <li> First Name: {{myInfoCtrl.loggedUser.firstName}} </li>
+          <li> Last Name: {{myInfoCtrl.loggedUser.lastName}} </li>
+          <li> E-mail: {{myInfoCtrl.loggedUser.email}} </li>
+          <li> Phone Number: {{myInfoCtrl.loggedUser.phoneNumber}} </li>
+          <li> Favorite Code: {{myInfoCtrl.loggedUser.favorite.short_name}} </li>
+        </ul>
+        <button class='btn btn-default' ng-click='myInfoCtrl.doLogout()'> Logout </button>
+     </div>
+        <div class='col-sm-12 col-md-8'>
+           <h1> Favorite </h1>
+           <menu-item menu-item='myInfoCtrl.loggedUser.favorite'></menu-item>
+        </div>
+   </div>
+
+</div>
+
+<div ng-if="!myInfoCtrl.hasLoggedUser">
+   <h1 class="text-center"> Not Signed!</h1>
+   <h4 class="text-center">
+      Click <a ui-sref='public.signup' ui-sref-active='active'> here </a> to sign up!
+  </h4>
+</div>

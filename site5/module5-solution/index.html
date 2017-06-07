@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>David Chu's China Bistro</title>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/restaurant.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <!-- Libs -->
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Main Restaurant Module -->
+    <script src="src/restaurant.module.js"></script>
+
+    <!-- Common Module -->
+    <script src="src/common/common.module.js"></script>
+    <script src="src/common/loading/loading.component.js"></script>
+    <script src="src/common/loading/loading.interceptor.js"></script>
+    <script src="src/common/rest-footer/rest-footer.component.js"></script>
+    <script src="src/common/rest-header/rest-header.component.js"></script>
+    <script src="src/common/menu.service.js"></script>
+    <script src="src/common/user.service.js"></script>
+    <script src="src/common/user.js"></script>
+
+    <!-- Public Module -->
+    <script src="src/public/public.module.js"></script>
+    <script src="src/public/public.routes.js"></script>
+    <script src="src/public/menu/menu.controller.js"></script>
+    <script src="src/public/menu-category/menu-category.component.js"></script>
+    <script src="src/public/menu-items/menu-items.controller.js"></script>
+    <script src="src/public/menu-item/menu-item.component.js"></script>
+    <script src="src/public/sign-up/sign-up.controller.js"></script>
+    <script src="src/public/my-info/my-info.controller.js"></script>
+
+    <!-- ADMIN SITE -->
+
+    <!--Application files -->
+
+  </head>
+  <body ng-app="restaurant" ng-strict-di>
+
+    <!-- Fixed position loading indicator -->
+    <loading class="loading-indicator"></loading>
+
+    <rest-header></rest-header>
+
+    <ui-view>
+      <div class="text-center initial-loading">
+        <h2>Loading Site...</h2>
+      </div>
+    </ui-view>
+
+    <rest-footer></rest-footer>
+
+
+  </body>
+
+</html>
