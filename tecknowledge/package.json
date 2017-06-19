@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreclinio/tecknowledge.git"
+    "url": "git+https://github.com/andreclinio/coursera-test.git"
   },
   "keywords": [
     "tecgraf"
@@ -16,7 +16,7 @@
   "author": "Andre Clinio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andreclinio/tecknowledge/issues"
+    "url": "https://github.com/andreclinio/coursera-test/tecknowledge/issues"
   },
-  "homepage": "https://github.com/andreclinio/tecknowledge#readme"
+  "homepage": "https://github.com/andreclinio/coursera-test/tecknowledge/README.md"
 }
