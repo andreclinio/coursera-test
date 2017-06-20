@@ -9,10 +9,10 @@ SignUpController.$inject = ['User', 'UserService', '$state', 'menuItems'];
 function SignUpController(User, UserService, $state, menuItems) {
   var ctrl = this;
   ctrl.menuItems = menuItems.menu_items;
-  ctrl.favorite = ctrl.menuItems[0].id;
+  ctrl.favoriteId = ctrl.menuItems[0].id + "";
+
 
   ctrl.doLogin = function() {
-    console.log("FAV", ctrl.favoriteId);
     var item = getItem(ctrl.favoriteId);
     var user = new User(ctrl.firstName, ctrl.lastName, ctrl.email, ctrl.phoneNumber, item);
     UserService.doLogin(user);

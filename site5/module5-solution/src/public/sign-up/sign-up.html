@@ -45,7 +45,7 @@
      <label>Favorite</label>
      <div class='form-group'>
         <select ng-model='signUpCtrl.favoriteId'>
-           <option value='{{i.id}}' ng-repeat='i in signUpCtrl.menuItems'> {{i.short_name}} -  {{i.name}}</option>
+           <option value='{{i.id}}' ng-repeat='i in signUpCtrl.menuItems'>{{i.short_name}}: {{i.name}}</option>
         </select>
      </div>
 
